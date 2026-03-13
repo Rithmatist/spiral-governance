@@ -38,6 +38,8 @@ template/
 ├── LEGIBILITY_SCROLL.md     — the doctrine
 ├── CODEX.md                 — AI assistant instructions (customize marked sections)
 ├── README.md                — project stub
+├── .github/
+│   └── pull_request_template.md  — GitHub-native governance format for PRs
 └── proposals/
     ├── README.md            — how proposals work
     ├── accepted/            — applied proposals

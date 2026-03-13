@@ -178,6 +178,30 @@ Every rule above is an application of this sentence. Make the system's behavior 
 
 ---
 
+## Implementation paths
+
+The protocol does not prescribe a specific tool. Each rule can be satisfied in multiple ways. What matters is that the governance behavior exists, not that it exists in a particular folder structure.
+
+### The proposal log
+
+**As a directory:** `/proposals/accepted/`, `/proposals/pending/`, `/proposals/executions/` — JSON documents with rationale, governance metadata, and execution records. Works in any project. Readable without tooling.
+
+**As GitHub PRs:** A PR is a proposal. The template at `.github/pull_request_template.md` enforces the governance format natively — intent, files touched, line-level explanation, invariant impact, drift estimate, mutation risk, minimal delta justification, and explicit human promotion confirmation. Every PR opened in the repository carries the governance structure automatically.
+
+**Both:** The directory log holds the record; GitHub PRs carry the governance format during review. The formats are compatible — a PR that satisfies the template is a proposal that satisfies the log structure.
+
+The choice depends on the project. A solo project may use the directory. A team project may use GitHub PRs. Either path satisfies Rule 7.
+
+### The output audit
+
+Can be implemented as middleware in any request path. The `.spiralaudit.json` configuration format is a convention, not a requirement — what matters is that confidence scoring and mimicry detection are in the path, not advisory.
+
+### The distortion scanner
+
+Any regular audit mechanism that checks declared behavior against actual behavior satisfies Rule 6. The six scan profiles describe a mature implementation; a new project can start with manual review against the distortion classes and build toward automation.
+
+---
+
 ## What This Protocol Is Not
 
 - It is not a safety framework in the risk-classification sense
