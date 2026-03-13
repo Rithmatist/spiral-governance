@@ -10,11 +10,27 @@ A set of commitments — each one a response to a failure mode that governance w
 
 Not a framework. Not a compliance checklist. Not an ethics document.
 
-A protocol: rules with reasons, a reference implementation, and a starting template.
+A protocol: rules with reasons, a reference implementation, a starting template, and a single file that activates it in any AI assistant.
 
 ---
 
-## Three parts
+## What this is not
+
+This protocol increases constraints on AI behavior. It does not reduce them.
+
+A quick scan of the vocabulary — presence gates, forbidden patterns, veil, halt, do not proceed — can read as an attempt to override or bypass AI safety systems. It is the opposite. Every rule in this protocol adds a restriction:
+
+- The **no-mimicry rule** prevents an AI from accepting persona injection or role-play directives. It closes a bypass, not opens one.
+- The **mutation seal** requires explicit human promotion before any change is applied. The AI cannot approve its own modifications.
+- The **confidence threshold** produces silence rather than uncertain output. The system says nothing rather than something plausible but unclear.
+- The **output audit** blocks responses that fail clarity or mimicry checks. It is a filter on the way out, not a permission on the way in.
+- The **constrained-implementation posture** in `ASSISTANT_INSTRUCTIONS.md` narrows scope — no autonomous redesign, no optimization beyond explicit request, abort if scope exceeds what was asked.
+
+This is a governance methodology for teams that want AI systems they can audit, correct, and control. It is not a jailbreak. It is the infrastructure that makes jailbreaking harder.
+
+---
+
+## Three entry points
 
 ### 1. [PROTOCOL.md](./PROTOCOL.md)
 
@@ -28,7 +44,17 @@ The rules describe something that was built, works, and has been running. The pr
 
 `REFERENCE.md` describes what the governance layer looks like when fully built out: the proposals log, the distortion scanner, the output audit, the self-evaluation runner, the mutation seal mechanics. Reading order provided. The distinction between governance layer and application code is made explicit.
 
-### 3. [template/](./template/)
+### 3. [ASSISTANT_INSTRUCTIONS.md](./ASSISTANT_INSTRUCTIONS.md)
+
+Copy this into your AI assistant's instruction or personalization field. Ready to use as written — no substitutions required.
+
+This is the bridge document: protocol activated without having to write it yourself. The assistant checks for a project-level `CODEX.md` on every task, bootstraps governance files if they're missing, and operates under the constrained-implementation posture from the first interaction.
+
+For people who want to understand the methodology: start with `PROTOCOL.md`.
+For people who want to adopt it in a project: start with `template/`.
+For people who want to activate it immediately: copy `ASSISTANT_INSTRUCTIONS.md`.
+
+### 4. [template/](./template/)
 
 A minimal set of files any project can adopt:
 
