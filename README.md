@@ -30,6 +30,14 @@ This is a governance methodology for teams that want AI systems they can audit, 
 
 ---
 
+## On conversational adoption
+
+Pasting this protocol into a chat interface and asking the model to "follow it" produces performance, not governance. The model will mirror the structure back convincingly. That is not the protocol working — that is the model doing what models do with context.
+
+The protocol is designed for system prompt enforcement in API and Codex contexts, where the rules are enforced externally — by a proposals directory the model cannot edit, a human promotion gate the model cannot bypass, an audit layer that runs independently. If the enforcement lives only inside the model's own outputs, it is symbolic. The tell: a governed system halts and writes a proposal. A performing system explains why it would halt, then continues.
+
+---
+
 ## Three entry points
 
 ### 1. [PROTOCOL.md](./PROTOCOL.md)
@@ -105,6 +113,8 @@ Then:
 
 ## Origin
 
-This protocol was extracted from a working system — not designed in advance of it. The rules describe something that was already built and running. The extraction made the methodology portable.
+This protocol was extracted from a working system — not designed in advance of it. The rules describe something that was already built and running.
 
-The first project grew organically. The next projects inherit the spine without having to grow it themselves.
+What is currently built: the proposals directory, `CODEX.md` as enforced system prompt, the mutation seal, the output audit config, the template. These are running in the reference implementation.
+
+What is directional: automated distortion scanning, confidence gating as code, formal audit tooling. These are described in `REFERENCE.md` as the full governance picture — not all of it exists yet.
